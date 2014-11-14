@@ -48,7 +48,7 @@ public class Driving {
    public void updateZ(double thisZ){
         z = thisZ;
    }
-    
+    //assuming that one motor is flipped
     //turn left
    public void turnLeft(double speed){
        cats1.set(-speed);
