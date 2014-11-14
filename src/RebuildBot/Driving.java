@@ -47,9 +47,21 @@ public class Driving {
     }
    public void updateZ(double thisZ){
         z = thisZ;
-    }
+   }
     
     //turn left
+   public void turnLeft(double speed){
+       cats1.set(-speed);
+       cats2.set(-speed);
+   }
     //turn right
+   public void turnRight (double speed) {
+       cats1.set (speed);
+       cats2.set (speed);        
+   }
+   public void stop () {
+       cats1.set (0);
+       cats2.set (0);        
+   }
     
 }
