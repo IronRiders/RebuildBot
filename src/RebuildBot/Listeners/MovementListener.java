@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package RebuildBot.Listeners;
 
 import RebuildBot.Driving;
@@ -13,14 +7,20 @@ import RebuildBot.Driving;
  * @author ros_maremash
  */
 public class MovementListener implements JoystickListener{
-    Driving driving;
+    private Driving driving;
+    
     public MovementListener (Driving driving1){
-        this.driving= driving1;
+        this.driving = driving1;
     }
+    
     public void joystickMoved(double x, double y, double z){
+        //to make z a nonexistent factor uncomment the staement below:
+        // z = 1;
+        //updating values within driving
         driving.updateX(x);
         driving.updateY(y);
         driving.updateZ(z);
+        //driving/moving according to those values
         driving.recalcvelocity();
     }
 }
