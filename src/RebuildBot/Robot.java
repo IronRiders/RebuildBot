@@ -7,6 +7,8 @@
 
 package RebuildBot;
 //imports:
+import RebuildBot.Input.Attack3Joystick;
+import RebuildBot.Listeners.MovementListener;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 
@@ -18,6 +20,13 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  * directory.
  */
 public class Robot extends IterativeRobot {
+    private Attack3Joystick joystick1;
+    private Attack3Joystick joystick2;
+    private Driving driving;
+    private MovementListener movementlistener;
+    
+    public static final int PORT1= 1;
+    public static final int PORT2= 2;
     
     //TO-DO: create objects universally.
     /*hint: Look in robotinit. 
@@ -28,6 +37,13 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+        joystick1 = new Attack3Joystick(1);
+        joystick2 = new Attack3Joystick(2);
+        driving = new Driving();
+        movementlistener = new MovementListener(driving);
+        
+
+
         //TO-DO: initialize variables in robotInit()
         //joystick(s)
         //create constants for ports 1 and/or 2 these ports are for the computer 

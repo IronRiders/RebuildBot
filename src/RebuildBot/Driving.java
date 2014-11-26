@@ -20,7 +20,11 @@ public class Driving {
         public double z;
         
     public Driving(){
-       //TO-DO: initialize the values of x, y, and z as zero. why should we do this? 
+       //initializing the values of x, y, and z as zero 
+        x=0;
+        y=0;
+        z=0;
+        
     }
     
     //this is the function that makes the robot move
@@ -30,10 +34,9 @@ public class Driving {
         double newY = ((int)(y*z)*100)/100.0;
         double newX = ((int)(x*z)*100)/100.0;
         
-        /*TO-DO: apply the setSpeedCatsRight() and setSpeedCatsLeft() methods to
-        the statements below to account for the reversed motor*/
-        catsRight.set(Math.min((Math.max(-1, newY+newX)),1));
-        catsLeft.set(Math.min((Math.max(-1, newY-newX)),1));
+        /* sets limits on the range of speed that the mottor will take accounts for negative right motor*/
+        setSpeedCatsRight(Math.min((Math.max(-1, newY+newX)),1));
+        setSpeedCatsLeft(Math.min((Math.max(-1, newY-newX)),1));
     }
     
     /*the update methods below update the x, y, and z value stored in driving, 
@@ -57,9 +60,10 @@ public class Driving {
        catsLeft.set (0);        
    }
    
-   //TO-DO: complete this recalc velocity class to be used in autonomus
+   //Gives speed from autonomus to jaguar motors
    public void recalcVelocityAuto(double speed){
-       //how do you make both of the motors turn at the same speed in the same direction?
+       catsRight.set(-speed);
+       catsLeft.set(speed);
    }
    
    //assuming that one motor is flipped
