@@ -84,6 +84,8 @@ public class Robot extends IterativeRobot {
         /*TO-Do: tell the joystick to update values, look at Attack3Joustick methods.
         Becasue this method is in the teleopPeriodic() method it gets called 
         /ver and over and over again,and will upsate values effectivley. */
+    joystick1.listen();
+    joystick2.listen();
     }
     
     /**
